@@ -1,6 +1,9 @@
 REBOUND - An open-source multi-purpose N-body code for collisional dynamics
 ===========================================================================
 
+SMACK - The Superparticle-Method Algorithm for Collisions in Kuiper Belts and Debris Disks
+==========================================================================================
+
 Contributors
 ------------
 
@@ -29,10 +32,6 @@ SMACK
 
 The paper Nesvold, Kuchner, Rein, & Pan 2013 describing the SMACK module has been published as article 144 in ApJ Volume 777, 2013. A freely available preprint can be found on the arXiv at http://arxiv.org/abs/1309.2289.
 
-Screenshot
----------- 
- 
-![Tree structure in REBOUND](https://raw.github.com/hannorein/rebound/master/doc/images/screenshot_shearingsheet.png) 
 
 Available modules
 -----------------
@@ -117,6 +116,11 @@ Other features worth mentioning
 * Different modules are easily interchangeable by one line in the Makefile.
   
 
+SMACK
+-----
+
+Unlike the various integrators, collision search algorithms, etc., SMACK is not implemented as a module to REBOUND. Instead, all of the SMACK functions are contained in the file smack.c, which must be included in the problem file for implementation. SMACK is packaged with this version of REBOUND and cannot be used with newer versions of REBOUND available through http://github.com/hannorein/rebound.
+
 How to download, compile and run REBOUND
 ----------------------------------------
 
@@ -125,14 +129,10 @@ If you are using a Mac, make sure you have a compiler suite installed. Open a te
 
 Then, simply copy and paste this line to your terminal and press enter
 
-    git clone http://github.com/hannorein/rebound && cd rebound/examples/shearing_sheet && make && ./nbody
-
-or if you do not have git installed
-
-    wget --no-check-certificate https://github.com/hannorein/rebound/tarball/master -O- | tar xvz && cd hannorein-rebound-*/examples/shearing_sheet/ && make && ./nbody
+    git clone http://github.com/ernesvold/SMACK && cd rebound/examples/shearing_sheet && make && ./nbody
 
 ### For the patient ###
-REBOUND is very easy to install and use. To get started, download the latest version of the code from github. If you are familiar with `git`, you can clone the project and keep up-to-date with the latest developments. Otherwise, you can also simply download a snapshot of the repository as a tar or zip file at http://github.com/hannorein/rebound. There is a download bottom at the top right. 
+REBOUND is very easy to install and use. To get started, download the latest version of the code from github. If you are familiar with `git`, you can clone the project and keep up-to-date with the latest developments. Otherwise, you can also simply download a snapshot of the repository as a tar or zip file at http://github.com/ernesvold/SMACK. There is a download bottom at the top right. 
 
 In the main directory, you find a sub-directory called `src` which contains the bulk parts of the  source code and a directory called `examples` with various example problems. To compile one of the example, you have to go to that directory, for example:
 
@@ -160,6 +160,8 @@ To finally run the code, simply type
 A window should open and you will see a simulation running in real time. The setup simulates the rings of Saturn and uses a local shearing sheet approximation. Have a look at the other examples too and you will quickly get an impression of what REBOUND can do. 
 
 If you want to create your own problem, just copy one of the example directories or the template in the `problems` directory. Then simply modify `problem.c` and `Makefile` accordingly.  
+
+SMACK examples are available in examples/smack/ and are run the same way.
 
 ### How to install GLUT ###
 The OpenGL Utility Toolkit (GLUT) comes pre-installed as a framework on Mac OSX. If you are working on another operating system, you might have to install GLUT yourself if you see an error message such as `error: GL/glut.h: No such file or directory`. On Debian and Ubuntu, simply make sure the `freeglut3-dev` package is installed. If glut is not available in your package manager, go to http://freeglut.sourceforge.net/ download the latest version, configure it with `./configure` and compile it with `make`. Finally install the library and header files with `make install`. 
@@ -265,27 +267,28 @@ You can use the following keyboard command to alter the OpenGL real-time visuali
 
 Support and contributions
 -------------------------
-We offer limited support for REBOUND. If you encounter any problems, just send us an e-mail with as much details as possible and include your problem.c and makefile. Please make sure you are using the latest version of REBOUND that is available on github. 
 
-REBOUND is open source and you are strongly encouraged to contribute to this project if you are using it. Please contact us and we will give you permission to push directly to the public repository. 
+Since SMACK is based on an older version of REBOUND, please contact Erika Nesvold for limited support with this package. If you encounter any problems, just send an e-mail with as much details as possible and include your problem.c and makefile. Please make sure you are using the latest version of REBOUND+SMACK that is available on github. 
+
+REBOUND and SMACK are open source and you are strongly encouraged to contribute to this project if you are using it. Please contact us and we will give you permission to push directly to the public repository. 
 
 
 License
 -------
-REBOUND is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+REBOUND and SMACK are free software: you can redistribute them and/or modify them under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-REBOUND is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+REBOUND and SMACK are distributed in the hope that they will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with REBOUND.  If not, see <http://www.gnu.org/licenses/>.
 
 
 Acknowledgments
 ---------------
-When you use this code or parts of this code for results presented in a scientific publication, please send us a copy of your paper so that we can keep track of all publications that made use of the code. We would greatly appreciate a citation to Rein and Liu (2012) and an acknowledgment of the form: 
+When you use this code or parts of this code for results presented in a scientific publication, please send us a copy of your paper so that we can keep track of all publications that made use of the code. We would greatly appreciate a citation to both Rein and Liu (2012) and Nesvold et al. (2013) and an acknowledgment of the form: 
 
-_Simulations in this paper made use of the collisional N-body code REBOUND which can be downloaded freely at http://github.com/hannorein/rebound._
+_Simulations in this paper made use of the collisional N-body codes REBOUND and SMACK which can be downloaded freely at http://github.com/ernesvold/SMACK._
 
-Reference in BibTeX format:
+References in BibTeX format:
 
     @ARTICLE{ReinLiu2012,
        author = {{Rein}, H. and {Liu}, S.-F.},
@@ -302,6 +305,24 @@ Reference in BibTeX format:
        volume = 537,
         pages = "A128",
        adsurl = {http://adsabs.harvard.edu/abs/2011arXiv1110.4876R},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+    }
+
+    @ARTICLE{ReinLiu2012,
+       author = {{Nesvold}, E. R. and {Kuchner}, M. J. and {Rein}, H. and {Pan}, M.},
+        title = "{SMACK: A New Algorithm for Modeling Collisions and Dynamics of Planetesimals in Debris Disks}",
+      journal = {ApJ},
+    archivePrefix = "arXiv",
+       eprint = {1309.2289},
+          DOI = "10.1088/0004-637X/777/2/144",
+          url = "http://dx.doi.org/10.1088/0004-637X/777/2/144",
+     primaryClass = "astro-ph.EP",
+     keywords = {celestial mechanics, circumstellar matter, interplanetary medium, methods: numerical, planet-disk interactions, planetary systems},
+         year = 2013,
+        month = "",
+       volume = 777,
+        pages = "144",
+       adsurl = {http://adsabs.harvard.edu/abs/2013ApJ...777..144N},
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
     }
 
