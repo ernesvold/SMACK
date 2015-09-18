@@ -3,17 +3,31 @@ REBOUND - An open-source multi-purpose N-body code for collisional dynamics
 
 Contributors
 ------------
+
+REBOUND
+
 * Hanno Rein, Institute for Advanced Study (IAS), Princeton, <hanno@hanno-rein.de>
 * Shangfei Liu, Kavli Institute for Astronomy and Astrophysics at Peking University (KIAA-PKU), Beijing, <liushangfei@pku.edu.cn>
 * David S. Spiegel, Institute for Advanced Study (IAS), Princeton, <dave@ias.edu>
 * Akihiko Fujii, National Astronomical Observatory of Japan/University of Tokyo, Tokyo, <akihiko.fujii@nao.ac.jp>
 
-Paper
------ 
+SMACK
+
+* Erika Nesvold, Carnegie Department of Terrestrial Magnetism (DTM), Washington, D.C., <enesvold@carnegiescience.edu>
+
+Papers
+------ 
+
+REBOUND
 
 The paper Rein & Liu 2012 describing this code has been accepted for publication by Astronomy and Astrophysics on 6 November 2011 and has been published as article A128 in A&A Volume 537 2012. A freely available preprint can be found on the arXiv at http://arxiv.org/abs/1110.4876.
 
 On YouTube, http://youtu.be/gaExPGW1WzI?hd=1, you can find a promo video on how to download and install REBOUND. 
+
+
+SMACK
+
+The paper Nesvold, Kuchner, Rein, & Pan 2013 describing the SMACK module has been published as article 144 in ApJ Volume 777, 2013. A freely available preprint can be found on the arXiv at http://arxiv.org/abs/1309.2289.
 
 Screenshot
 ---------- 
