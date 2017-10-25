@@ -308,7 +308,7 @@ References in BibTeX format:
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
     }
 
-    @ARTICLE{ReinLiu2012,
+    @ARTICLE{Nesvold2013,
        author = {{Nesvold}, E. R. and {Kuchner}, M. J. and {Rein}, H. and {Pan}, M.},
         title = "{SMACK: A New Algorithm for Modeling Collisions and Dynamics of Planetesimals in Debris Disks}",
       journal = {ApJ},
