@@ -324,7 +324,6 @@ void output_smack_collisions(char* filename, float time, float x, float y, float
 
 void collision_resolve_single_fragment(struct collision c);
 
-
 double mfp = 0.0; /* Average mean free path */
 
 void collision_resolve_single_fragment(struct collision c){	
@@ -372,7 +371,6 @@ void collision_resolve_single_fragment(struct collision c){
 	const double mconv = 1.98892e30; // conversion from solar units to kg
 	const double dconv = 1.5e11;	  // conversion from AU to m
 	const double vconv = 29866.;	  // conversion to m/s
-	//const double tconv = 0.159;      // conversion to years
 	const double vol1 = (4./3)*M_PI*pow(p1.r*dconv,3);	// Volume of swarm 1 (m^3)
 	const double vol2 = (4./3)*M_PI*pow(p2.r*dconv,3);  // Volume of swarm 2 (m^3)
 	const double eta = -1.5;                      // supercatastrophic largest remnant exponent
@@ -457,9 +455,6 @@ void collision_resolve_single_fragment(struct collision c){
 	double rempath2 = pathlength2; // remaining pathlength for SP 2
 	int last = 0; // Flag for last loop
 	
-	//int numzeros1,numzeros2;
-	//int numgood1,numgood2;
-	//int k1,k2;
 	struct line line1; // fit for extrapolated size distribution for SP 1
 	struct line line2; // fit for extrapolated size distribution for SP 2
 	double bigdist1[numbins+extra]; // extrapolated size distribution for SP 1
@@ -608,13 +603,8 @@ void collision_resolve_single_fragment(struct collision c){
 				double term = (bigbins[j]+bigbins[i]);
 				double term1 = term*term*(M_PI/4.)/vol1; // Why do I divide by volume here and not in the following lines?
 				double term2 = term*term*(M_PI/4.)/vol2; // Don't question it. It had to be this way.
-					od1arr[i][j] = bigdist2[j]*term1*rempath1;
-					od2arr[i][j] = bigdist1[j]*term2*rempath2;
-					//} else {
-					//od1arr[i][j] = 0.0;
-					//od2arr[i][j] = 0.0;
-					//fprintf(stderr,"Node %d, binsize error!\n",mpi_id);
-					//}
+                od1arr[i][j] = bigdist2[j]*term1*rempath1;
+                od2arr[i][j] = bigdist1[j]*term2*rempath2;
 				od1[i] += od1arr[i][j];
 				od2[i] += od2arr[i][j];
 			}
@@ -850,12 +840,6 @@ void collision_resolve_single_fragment(struct collision c){
 	double vx4 = vxd + cmx; // x-vel of SP 2 in REBOUND frame
 	double vy4 = vyd + cmy; // y-vel of SP 2 in REBOUND frame
 	double vz4 = vzd + cmz; // z-vel of SP 2 in REBOUND frame
-	
-	// Record dust production
-        //output_smack_collisions("/discover/nobackup/enesvold/collisionsShort.txt",t,x1,y1,z1,vx3,vy3,vz3,totm1-newm1);
-	//output_smack_collisions("/discover/nobackup/enesvold/collisionsShort.txt",t,x2,y2,z2,vx4,vy4,vz4,totm2-newm2);	
-	//output_collisions_append("/discover/nobackup/enesvold/relvelM1.0e0.3half.txt",t,x1,y1,z1,vx1,vy1,vz1,particles[c.p1].m);
-	//output_collisions_append("/discover/nobackup/enesvold/relvelM1.0e0.3half.txt",t,x2,y2,z2,vx2,vy2,vz2,particles[c.p2].m);
 	
 	// Keep track of number of collisions and mean free path
 	collisions_Nlog++;
