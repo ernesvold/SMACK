@@ -69,11 +69,11 @@ double fragdistsum[numbins];	// used to normalize fragment distribution
 
 void problem_init(int argc, char* argv[]){
 	// Setup constants
-	N_active = 2;
-	N_tree_fixed = 2;
+	N_active = 2; // number of gravitational bodies
+	N_tree_fixed = 2; // number of fixed particles in tree
 	boxsize = 10;	// AU
-	dt = 0.1/0.159; // Timestep (years->code units)
-	tmax = (1.0e6+1)*dt;
+	dt = 0.1/0.159; // timestep (years->code units)
+	tmax = (1.0e6+1)*dt; // max time
 	
 	init_box();
     

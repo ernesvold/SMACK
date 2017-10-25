@@ -1,7 +1,7 @@
 
 /**
  * @file 	problem.c
- * @brief 	Gap Opening Simulation
+ * @brief 	Gap Opening Simulation implemented with MPI
  * @author 	REBOUND: Hanno Rein <hanno@hanno-rein.de>
  * @author	Problem: Erika Nesvold <erika.r.nesvold@nasa.gov>
  * 
